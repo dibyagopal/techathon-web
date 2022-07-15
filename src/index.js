@@ -1,68 +1,32 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
-// import './index.css';
-// import App from './App';
-// import reportWebVitals from './reportWebVitals';
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
-
-// // If you want to start measuring performance in your app, pass a function
-// // to log results (for example: reportWebVitals(console.log))
-// // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();
-
-import React, { Suspense, lazy } from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { HashLoader } from 'react-spinners';
-
-// import ComponentSpinner from "./components/@vuexy/spinner/Loading-spinner";
-
 import { setLoginFlag, setLoginUser } from './redux/actions/loginAction';
 import { history } from './history';
 
-const LazyApp = lazy(() => import('./App'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const jsx = (
   <Provider store={store}>
-    <Suspense fallback={<HashLoader />}>
-      <LazyApp />
-
-      {/* <ReduxToastr
-        timeOut={2000}
-        newestOnTop={false}
-        preventDuplicates
-        position="top-right"
-        transitionIn="fadeIn"
-        transitionOut="fadeOut"
-        progressBar
-        closeOnToastrClick
-      />
-      <ComponentSpinner /> */}
-    </Suspense>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   </Provider>
 );
-
 let hasRendered = false;
 
 const renderApp = async () => {
-  // await fetch('/thing/stuck/in/cache', {method:'POST', credentials:'include'});
   if (!hasRendered) {
-    ReactDOM.render(jsx, document.getElementById('root'));
-    // registerServiceWorker();
+    root.render(jsx);
     hasRendered = true;
   }
 };
-
-ReactDOM.render(<HashLoader />, document.getElementById('root'));
-
+root.render(<HashLoader />);
 
 const renderLogin = () => {
   store.dispatch(setLoginFlag(false));
@@ -71,6 +35,7 @@ const renderLogin = () => {
     history.push('/login');
   }
 };
+
 try {
   const login = localStorage.getItem('knowledgesquare');
 
@@ -84,6 +49,7 @@ try {
     if (window.location.pathname === '/' || window.location.pathname === '/es/' || window.location.pathname === '/es') {
       history.push('/');
     } else if (window.location.pathname === '/login' || window.location.pathname === '/es/login') {
+      console.log('reached there');
       store.dispatch(setLoginFlag(false));
       localStorage.removeItem('knowledgesquare');
     } else {
