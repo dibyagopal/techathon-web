@@ -1,7 +1,8 @@
 import React, { Suspense } from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
-import { HashLoader } from 'react-spinners';
+import { Spinner } from '../components/Loading';
+import AdminLayout from '../layouts/Admin';
 
 // Main Layout
 const PrivateRoute = ({ isAuthenticated, fullLayout, permission, component: Component, ...rest }) => (
@@ -13,8 +14,8 @@ const PrivateRoute = ({ isAuthenticated, fullLayout, permission, component: Comp
           {...rest}
           render={(props) => {
             return (
-              <Suspense fallback={<HashLoader />}>
-                <Component {...props} />
+              <Suspense fallback={<Spinner />}>
+                <AdminLayout {...props} />
               </Suspense>
             );
           }}

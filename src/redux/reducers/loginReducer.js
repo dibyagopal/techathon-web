@@ -7,6 +7,7 @@ const initState = {
 };
 
 const LoginReducer = (state = initState, action) => {
+  console.log("REACHED THERE");
   switch (action.type) {
     case SET_LOGIN_USER:
       return {

@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, compose } from "redux"
+import { legacy_createStore as createStore, applyMiddleware, compose } from "redux"
 import createDebounce from "redux-debounced"
 import thunk from "redux-thunk"
 import rootReducer from "./reducers/rootReducer"
