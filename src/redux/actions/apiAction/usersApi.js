@@ -1,8 +1,8 @@
-import { setAllUser } from '../userAction';
+import { setAllUser,setUserData } from '../userAction';
 import { api } from '../../../api';
 import { history } from '../../../history';
 // import { toast } from 'react-toastify';
-import {toastr} from 'react-redux-toastr'
+import { toastr } from 'react-redux-toastr';
 import { store } from '../../store';
 
 export const getAllUser = (value) => {
@@ -11,6 +11,20 @@ export const getAllUser = (value) => {
     await api('users/all', {}, 'get').then((res) => {
       if (res.status === 200) {
         dispatch(setAllUser(res.data));
+      } else {
+        toastr.error('Unable to fetch users');
+      }
+    });
+  };
+};
+
+export const setUserDataApi = (user_id) => {
+  // history.push('/')
+  return async (dispatch, store) => {
+    await api(`users/details/${user_id}`, {}, 'get').then((res) => {
+      if (res.status === 200) {
+        console.log(res);
+        dispatch(setUserData(res.data));
       } else {
         toastr.error('Unable to fetch users');
       }

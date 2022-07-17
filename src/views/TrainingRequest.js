@@ -18,13 +18,14 @@
 
 // reactstrap components
 import { useEffect, useState } from 'react';
-import { Button, Card, CardHeader, CardBody, FormGroup, Form, Input, Container, Row, Col, UncontrolledAlert } from 'reactstrap';
+import { Button, Card, CardHeader, CardBody, FormGroup, Form, Input, Container, Row, Col } from 'reactstrap';
 // core components
 import UserHeader from 'components/Headers/UserHeader.js';
 import { connect } from 'react-redux';
 import Select from 'react-select';
 import { api } from 'api';
 import { toastr } from 'react-redux-toastr';
+import UserInfo from 'components/UserInfo';
 
 const TrainingRequest = (props) => {
   const [selectedSkill, setSelectedSkill] = useState(null);
@@ -96,7 +97,8 @@ const TrainingRequest = (props) => {
       {/* Page content */}
       <Container className="mt--9" fluid>
         <Row>
-          <Col className="order-xl-2 mb-5 mb-xl-0" xl="4">
+          <UserInfo />
+          {/* <Col className="order-xl-2 mb-5 mb-xl-0" xl="4">
             <Card className="card-profile shadow">
               <Row className="justify-content-center">
                 <Col className="order-lg-2" lg="3">
@@ -161,7 +163,7 @@ const TrainingRequest = (props) => {
                 </div>
               </CardBody>
             </Card>
-          </Col>
+          </Col> */}
           <Col className="order-xl-1" xl="8">
             <Card className="bg-secondary shadow">
               <CardHeader className="bg-white border-0">

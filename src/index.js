@@ -25,7 +25,7 @@ import { history } from './history';
 import { Spinner } from './components/Loading';
 // import { ToastContainer } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
-import { checkUser, getAllUser } from './redux/actions/apiAction/usersApi';
+import { checkUser, getAllUser, setUserDataApi } from './redux/actions/apiAction/usersApi';
 import ReduxToastr from 'react-redux-toastr';
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 
@@ -33,6 +33,9 @@ import 'assets/plugins/nucleo/css/nucleo.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'assets/scss/argon-dashboard-react.scss';
 import './index.css';
+import 'react-datepicker/dist/react-datepicker.css';
+import 'react-time-picker/dist/TimePicker.css';
+import 'react-clock/dist/Clock.css'
 
 import AdminLayout from 'layouts/Admin.js';
 import AuthLayout from 'layouts/Auth.js';
@@ -157,7 +160,9 @@ const tryLogin = async () => {
       const loginObject = JSON.parse(login);
       let userStatus = checkUser(loginObject);
       if (!userStatus) throw Error;
-      console.log('LOGIN OBJECT', userStatus);
+      console.log('LOGIN OBJECT', loginObject);
+      store.dispatch(setUserDataApi(loginObject.id))
+      
       store.dispatch(setLoginUser(loginObject));
       store.dispatch(setLoginFlag(true));
 

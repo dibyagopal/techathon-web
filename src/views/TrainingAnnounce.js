@@ -25,8 +25,13 @@ import { connect } from 'react-redux';
 import Select from 'react-select';
 import { api } from 'api';
 import { toastr } from 'react-redux-toastr';
+import DatePicker from 'react-datepicker';
+import TimePicker from 'react-time-picker';
+import UserInfo from 'components/UserInfo';
 
 const TrainingAnnouce = (props) => {
+  const [startDate, setStartDate] = useState(new Date());
+  const [value, onChange] = useState('10:00');
   const [selectedSkill, setSelectedSkill] = useState(null);
   const [selectedTopicType, setSelectedTopicType] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
@@ -96,7 +101,8 @@ const TrainingAnnouce = (props) => {
       {/* Page content */}
       <Container className="mt--9" fluid>
         <Row>
-          <Col className="order-xl-2 mb-5 mb-xl-0" xl="4">
+          <UserInfo />
+          {/* <Col className="order-xl-2 mb-5 mb-xl-0" xl="4">
             <Card className="card-profile shadow">
               <Row className="justify-content-center">
                 <Col className="order-lg-2" lg="3">
@@ -161,7 +167,7 @@ const TrainingAnnouce = (props) => {
                 </div>
               </CardBody>
             </Card>
-          </Col>
+          </Col> */}
           <Col className="order-xl-1" xl="8">
             <Card className="bg-secondary shadow">
               <CardHeader className="bg-white border-0">
@@ -174,79 +180,46 @@ const TrainingAnnouce = (props) => {
               <CardBody>
                 <Form>
                   <div className="lg-4">
+                    <Row className="">
+                      <Col lg="12">
+                        <FormGroup>
+                          <label className="form-control-label" htmlFor="input-username">
+                            Available date
+                          </label>
+                          <DatePicker className="form-control-alternative datetime-text" selected={startDate} onChange={(date) => setStartDate(date)} />
+                          {/* <Input className="form-control-alternative" defaultValue="lucky.jesse" id="input-username" placeholder="Username" type="text" /> */}
+                        </FormGroup>
+                      </Col>
+                    </Row>
                     <Row>
                       <Col lg="6">
-                        <Row>
-                          <Col lg="12">
-                            <FormGroup>
-                              <label className="form-control-label" htmlFor="input-username">
-                                Select skill
-                              </label>
-                              <Select
-                                options={skillsOption}
-                                className="form-control-alternative"
-                                placeholder={'Select skill...'}
-                                onChange={(e) => setSelectedSkill(e)}
-                                value={selectedSkill}
-                              />
-                              {/* <Input className="form-control-alternative" defaultValue="lucky.jesse" id="input-username" placeholder="Username" type="text" /> */}
-                            </FormGroup>
-                          </Col>
-                        </Row>
-                        <Row>
-                          <Col lg="12">
-                            <FormGroup>
-                              <label className="form-control-label" htmlFor="input-email">
-                                Topic type
-                              </label>
-                              <Select
-                                options={topicTypeOptions}
-                                className="form-control-alternative"
-                                placeholder={'Select topic...'}
-                                onChange={(e) => setSelectedTopicType(e)}
-                                value={selectedTopicType}
-                              />
-                              {/* <Input className="form-control-alternative" id="input-email" placeholder="jesse@example.com" type="email" /> */}
-                            </FormGroup>
-                          </Col>
-                        </Row>
-                        <Row>
-                          <Col lg="12">
-                            <FormGroup>
-                              <label className="form-control-label" htmlFor="input-first-name">
-                                Project Name
-                              </label>
-                              <Select
-                                isDisabled={selectStatus}
-                                options={projectOption}
-                                className="form-control-alternative"
-                                placeholder={'Select project...'}
-                                onChange={(e) => setSelectedProject(e)}
-                                value={selectedProject}
-                              />
-                              {/* <Input className="form-control-alternative" defaultValue="Lucky" id="input-first-name" placeholder="First name" type="text" /> */}
-                            </FormGroup>
-                          </Col>
-                        </Row>
+                        <label className="form-control-label" htmlFor="input-first-name">
+                          From time
+                        </label>
+                        <TimePicker className="form-control-alternative datetime-text" disableClock onChange={onChange} value={value} />
                       </Col>
                       <Col lg="6">
-                        <Row>
-                          <Col lg="12">
-                            <FormGroup>
-                              <label className="form-control-label" htmlFor="input-first-name">
-                                Note
-                              </label>
-                              <Input
-                                className="form-control-alternative"
-                                placeholder="A few words for the training request..."
-                                rows="10"
-                                type="textarea"
-                                onChange={(e) => setNote(e.target.value)}
-                                value={note}
-                              />
-                            </FormGroup>
-                          </Col>
-                        </Row>
+                        <label className="form-control-label" htmlFor="input-first-name">
+                          To time
+                        </label>
+                        <TimePicker className="form-control-alternative datetime-text" disableClock onChange={onChange} value={value} />
+                      </Col>
+                    </Row>
+                    <Row className="mt-4">
+                      <Col lg="12">
+                        <FormGroup>
+                          <label className="form-control-label" htmlFor="input-first-name">
+                            Note
+                          </label>
+                          <Input
+                            className="form-control-alternative"
+                            placeholder="A few words for the training announcement"
+                            rows="2"
+                            type="textarea"
+                            onChange={(e) => setNote(e.target.value)}
+                            value={note}
+                          />
+                        </FormGroup>
                       </Col>
                     </Row>
 

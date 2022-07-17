@@ -8,6 +8,7 @@ export const SET_ALL_PROJECTS = 'SET_ALL_PROJECTS';
 //users
 export const SET_ALL_USER = 'SET_ALL_USER';
 export const SET_ALERT = 'SET_ALERT';
+export const SET_USER_DATA = 'SET_USER_DATA';
 
 
 

@@ -318,8 +318,8 @@ let chartExample1 = {
           },
           ticks: {
             callback: function (value) {
-              if (!(value % 10)) {
-                return "$" + value + "k";
+              if (!(value % 1)) {
+                return  value ;
               }
             },
           },
@@ -337,7 +337,7 @@ let chartExample1 = {
             content += label;
           }
 
-          content += "$" + yLabel + "k";
+          content +=  yLabel ;
           return content;
         },
       },
@@ -349,7 +349,7 @@ let chartExample1 = {
       datasets: [
         {
           label: "Performance",
-          data: [0, 20, 10, 30, 15, 40, 20, 60, 60],
+          data: [0, 20, 16, 25, 8, 11, 35, 18, 13],
         },
       ],
     };
@@ -360,7 +360,7 @@ let chartExample1 = {
       datasets: [
         {
           label: "Performance",
-          data: [0, 20, 5, 25, 10, 30, 15, 40, 40],
+          data: [0, 3, 7, 4, 11, 2, 6, 10, 15],
         },
       ],
     };
@@ -400,11 +400,11 @@ let chartExample2 = {
     },
   },
   data: {
-    labels: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    labels: ["Angular", "Next.js", "React", "Pgsql", "Node.js", "Vue"],
     datasets: [
       {
         label: "Sales",
-        data: [25, 20, 30, 22, 17, 29],
+        data: [14, 12, 26, 25, 22, 10],
         maxBarThickness: 10,
       },
     ],

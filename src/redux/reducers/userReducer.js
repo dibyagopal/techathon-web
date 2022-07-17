@@ -1,7 +1,9 @@
-import { SET_ALL_USER } from '../actions/types/type';
+import { SET_ALL_USER, SET_USER_DATA } from '../actions/types/type';
 
 const initState = {
-  allUser: []
+  allUser: [],
+  userSkills: [],
+  userProjects: []
 };
 
 const userReducer = (state = initState, action) => {
@@ -10,6 +12,12 @@ const userReducer = (state = initState, action) => {
       return {
         ...state,
         allUser: action.payload.data
+      };
+    case SET_USER_DATA:
+      return {
+        ...state,
+        userSkills: action.payload.data.skills,
+        userProjects: action.payload.data.projects
       };
     default:
       return { ...state };
