@@ -40,6 +40,7 @@ const AdminNavbar = () => {
               src={
                 require("../../assets/img/brand/argon-react-white.png").default
               }
+              style={{backgroundColor:'#ffffff'}}
             />
           </NavbarBrand>
           <button className="navbar-toggler" id="navbar-collapse-main">

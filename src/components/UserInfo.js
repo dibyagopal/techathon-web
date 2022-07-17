@@ -36,15 +36,21 @@ const UserInfo = (props) => {
                 <div className="card-profile-stats d-flex justify-content-center mt-md-5">
                   <div>
                     <span className="heading">{getRandomNumber()}</span>
-                    <span className="description">Training Done</span>
+                    <div style={{ lineHeight: '18px' }}>
+                      <span className="description">Training Conducted</span>
+                    </div>
                   </div>
                   <div>
                     <span className="heading">{getRandomNumber()}</span>
-                    <span className="description">Training Attendend</span>
+                    <div style={{ lineHeight: '18px' }}>
+                      <span className="description">Training Attendend</span>
+                    </div>
                   </div>
                   <div>
                     <span className="heading">{getRating()}</span>
-                    <span className="description">Current Rating</span>
+                    <div style={{ lineHeight: '18px' }}>
+                      <span className="description">Current Rating</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -66,11 +72,14 @@ const UserInfo = (props) => {
               <div>
                 <h4>Skills</h4>
                 <small className="h5 mt-4">
-                  
-                    {userSkills.map((item, idx) => {
-                      return <text>{item.skill_name}{idx==userSkills.length-1?'':','}</text>;
-                    })}
-                  
+                  {userSkills.map((item, idx) => {
+                    return (
+                      <text>
+                        {item.skill_name}
+                        {idx == userSkills.length - 1 ? '' : ', '}
+                      </text>
+                    );
+                  })}
                 </small>
               </div>
             </div>

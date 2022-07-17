@@ -15,45 +15,61 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import Index from "views/Index.js";
-import Profile from "views/examples/Profile.js";
-import Maps from "views/examples/Maps.js";
-import Register from "views/examples/Register.js";
-import Login from "views/Login.js";
-import Tables from "views/examples/Tables.js";
-import Icons from "views/examples/Icons.js";
-import TrainingRequest from "views/TrainingRequest.js";
-import TrainingAnnouce from "views/TrainingAnnounce";
+import Index from 'views/Index.js';
+import Profile from 'views/examples/Profile.js';
+import Maps from 'views/examples/Maps.js';
+import Register from 'views/examples/Register.js';
+import Login from 'views/Login.js';
+import Tables from 'views/examples/Tables.js';
+import Icons from 'views/examples/Icons.js';
+import TrainingRequest from 'views/TrainingRequest.js';
+import TrainingAnnouce from 'views/TrainingAnnounce.js';
+import RequestList from 'views/RequestList.js';
+import AnnounceList from 'views/AnnounceList';
 
 var routes = [
   {
-    path: "/index",
-    name: "Dashboard",
-    icon: "ni ni-tv-2 text-primary",
+    path: '/index',
+    name: 'Dashboard',
+    icon: 'ni ni-tv-2 text-primary',
     component: Index,
-    layout: "/admin",
+    layout: '/admin'
   },
   {
-    path: "/training-request",
-    name: "Training Request",
-    icon: "ni ni-send text-blue",
+    path: '/training-request',
+    name: 'Training Request',
+    icon: 'ni ni-send text-blue',
     component: TrainingRequest,
-    layout: "/admin",
+    layout: '/admin'
   },
   {
-    path: "/training-announce",
-    name: "Training Announce",
-    icon: "ni ni-notification-70 text-blue",
+    path: '/training-announce',
+    name: 'Training Announce',
+    icon: 'ni ni-notification-70 text-blue',
     component: TrainingAnnouce,
-    layout: "/admin",
+    layout: '/admin'
   },
   {
-    path: "/icons",
-    name: "Icons",
-    icon: "ni ni-planet text-blue",
-    component: Icons,
-    layout: "/admin",
+    path: '/request-list',
+    name: 'Request List',
+    icon: 'ni ni-bullet-list-67 text-blue',
+    component: RequestList,
+    layout: '/admin'
   },
+  {
+    path: '/announce-list',
+    name: 'Announcer List',
+    icon: 'ni ni ni-circle-08 text-blue',
+    component: AnnounceList,
+    layout: '/admin'
+  },
+  // {
+  //   path: '/icons',
+  //   name: 'Icons',
+  //   icon: 'ni ni-planet text-blue',
+  //   component: Icons,
+  //   layout: '/admin'
+  // },
   // {
   //   path: "/maps",
   //   name: "Maps",
@@ -69,25 +85,25 @@ var routes = [
   //   layout: "/admin",
   // },
   // {
-  //   path: "/tables",
-  //   name: "Tables",
-  //   icon: "ni ni-bullet-list-67 text-red",
+  //   path: '/tables',
+  //   name: 'Tables',
+  //   icon: 'ni ni-bullet-list-67 text-red',
   //   component: Tables,
-  //   layout: "/admin",
+  //   layout: '/admin'
   // },
   {
-    path: "/login",
-    name: "Login",
-    icon: "ni ni-key-25 text-info",
+    path: '/login',
+    name: 'Login',
+    icon: 'ni ni-key-25 text-info',
     component: Login,
-    layout: "/auth",
+    layout: '/auth'
   },
   {
-    path: "/register",
-    name: "Register",
-    icon: "ni ni-circle-08 text-pink",
+    path: '/register',
+    name: 'Register',
+    icon: 'ni ni-circle-08 text-pink',
     component: Register,
-    layout: "/auth",
-  },
+    layout: '/auth'
+  }
 ];
 export default routes;
