@@ -12,12 +12,24 @@
   color: #333333;
 }
 
-.react-time-picker__wrapper{
+.react-time-picker__wrapper {
   border: none !important;
 }
 
 .bg-default {
   /* background-color: #172b4d !important; */
-  background:  linear-gradient(0deg, rgba(3, 21, 122, 1), rgba(39, 141, 236, 0.5)), url('./assets/img/brand/bg-17.jpg') !important;
+  background: linear-gradient(0deg, rgba(3, 21, 122, 1), rgba(39, 141, 236, 0.5)), url('./assets/img/brand/bg-17.jpg') !important;
   background-size: contain !important;
+}
+
+.bg-table {
+  background-color: #172b4d;
+}
+
+.react-time-picker__inputGroup__input {
+  height: auto !important;
+}
+
+.card-loading {
+  min-height: 500px;
 }

@@ -70,13 +70,13 @@ const RequestList = () => {
         <Row>
           {console.log('loading', loading)}
           <div className="col">
-            <Card className="shadow">
-              <CardHeader className="border-0">
-                <h3 className="mb-0">Card tables</h3>
+            <Card className="bg-table shadow" style={{ minHeight: '500px' }}>
+              <CardHeader className=" bg-transparent border-0">
+                <h3 className="text-white mb-0">Requests</h3>
               </CardHeader>
 
-              <Table className="align-items-center table-flush" responsive style={{ minHeight: '400px' }}>
-                <thead className="thead-light">
+              <Table className="align-items-center table-dark table-flush" responsive style={{ overflow: 'hidden', height: '100%' }}>
+                <thead className="thead-dark">
                   <tr>
                     <th scope="col">Requested by</th>
                     <th scope="col">Topic type</th>
@@ -90,7 +90,7 @@ const RequestList = () => {
                   {loading ? (
                     <div style={{ position: 'absolute', top: '250px', left: '50%' }}>
                       {' '}
-                      <RotateLoader color="#131368" size={'10px'} />
+                      <RotateLoader color="#ffffff" size={'10px'} />
                     </div>
                   ) : null}
                   {console.log('List', list)}
@@ -100,7 +100,7 @@ const RequestList = () => {
                         <th scope="row">
                           <Media className="align-items-center">
                             <a className="avatar rounded-circle mr-3" href="#pablo" onClick={(e) => e.preventDefault()}>
-                              <img alt="..." className="rounded-circle" src={item.request_by_image} style={{minHeight:'48px'}} />
+                              <img alt="..." className="rounded-circle" src={item.request_by_image} style={{ minHeight: '48px' }} />
                             </a>
                             <Media>
                               <span className="mb-0 text-sm">{item.request_by_name}</span>

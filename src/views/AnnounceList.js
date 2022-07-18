@@ -33,7 +33,8 @@ import {
   Table,
   Container,
   Row,
-  UncontrolledTooltip
+  UncontrolledTooltip,
+  Button
 } from 'reactstrap';
 // core components
 import Header from 'components/Headers/Header.js';
@@ -53,7 +54,7 @@ const AnnounceList = () => {
 
   const getList = async () => {
     setLoading(true);
-    let reqlist = await await api(`users/get-training-request/${user.id}`, {}, 'get');
+    let reqlist = await await api(`users/get-all-announcement`, {}, 'get');
     setLoading(false);
 
     if (reqlist.status === 200) {
@@ -70,19 +71,19 @@ const AnnounceList = () => {
         <Row>
           {console.log('loading', loading)}
           <div className="col">
-            <Card className="shadow">
-              <CardHeader className="border-0">
-                <h3 className="mb-0">Card tables</h3>
+            <Card className="bg-table shadow" style={{ minHeight: '500px' }}>
+              <CardHeader className="bg-transparent border-0">
+                <h3 className="text-white mb-0">Tariners</h3>
               </CardHeader>
 
-              <Table className="align-items-center table-flush" responsive style={{ minHeight: '400px' }}>
-                <thead className="thead-light">
+              <Table className="align-items-center table-dark table-flush" responsive style={{ height: '100%' }}>
+                <thead className="thead-dark">
                   <tr>
-                    <th scope="col">Requested by</th>
-                    <th scope="col">Topic type</th>
-                    <th scope="col">Project</th>
+                    <th scope="col">Trainer name</th>
+                    <th scope="col">Available date</th>
+                    <th scope="col">Available time</th>
                     <th scope="col">Skill</th>
-                    <th scope="col">Request note</th>
+                    <th scope="col"> Note</th>
                     <th scope="col" />
                   </tr>
                 </thead>
@@ -90,7 +91,7 @@ const AnnounceList = () => {
                   {loading ? (
                     <div style={{ position: 'absolute', top: '250px', left: '50%' }}>
                       {' '}
-                      <RotateLoader color="#131368" size={'10px'} />
+                      <RotateLoader color="#ffffff" size={'10px'} />
                     </div>
                   ) : null}
                   {console.log('List', list)}
@@ -100,38 +101,27 @@ const AnnounceList = () => {
                         <th scope="row">
                           <Media className="align-items-center">
                             <a className="avatar rounded-circle mr-3" href="#pablo" onClick={(e) => e.preventDefault()}>
-                              <img alt="..." className="rounded-circle" src={item.request_by_image} style={{ minHeight: '48px' }} />
+                              <img alt="..." className="rounded-circle" src={item.user_image} style={{ minHeight: '48px' }} />
                             </a>
                             <Media>
-                              <span className="mb-0 text-sm">{item.request_by_name}</span>
+                              <span className="mb-0 text-sm">{item.user_name}</span>
                             </Media>
                           </Media>
                         </th>
-                        <td>{item.topic_type.charAt(0).toUpperCase() + item.topic_type.slice(1)}</td>
-                        <td>{item.project_name ? item.project_name : '-'}</td>
-                        <td>{item.skill_name}</td>
-                        <td>{item.request_note}</td>
+                        <td>{item.available_date}</td>
+                        <td>
+                          {item.available_time_from} - {item.available_time_to}
+                        </td>
+                        <td>{item.skillsString}</td>
+                        <td>{item.notes}</td>
                         <td className="text-right">
-                          <UncontrolledDropdown>
-                            <DropdownToggle
-                              className="btn-icon-only text-light"
-                              href="#pablo"
-                              role="button"
-                              size="sm"
-                              color=""
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <i className="fas fa-ellipsis-v" />
-                            </DropdownToggle>
-                            <DropdownMenu className="dropdown-menu-arrow" right>
-                              <DropdownItem href="#pablo" onClick={(e) => toastr.success('You have accepted the request')}>
-                                Accept
-                              </DropdownItem>
-                              <DropdownItem href="#pablo" onClick={(e) => toastr.success('You have rejected the request')}>
-                                Reject
-                              </DropdownItem>
-                            </DropdownMenu>
-                          </UncontrolledDropdown>
+                          <Button color="success" outline size="sm" type="button" onClick={(e) => toastr.success('Join request send successfully')}>
+                            <span className="btn-inner--icon">
+                              <i className="ni ni-check-bold" />
+                            </span>
+                            <span className="btn-inner--text">Join</span>
+                          </Button>
+                         
                         </td>
                       </tr>
                     );

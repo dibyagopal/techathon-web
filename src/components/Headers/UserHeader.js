@@ -27,7 +27,7 @@ const UserHeader = () => {
         className="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
         style={{
           minHeight: '400px',
-          backgroundImage: 'url(' + require('../../assets/img/theme/profile-cover.jpg').default + ')',
+          // backgroundImage: 'url(' + require('../../assets/img/theme/profile-cover.jpg').default + ')',
           backgroundSize: 'cover',
           backgroundPosition: 'center top'
         }}
