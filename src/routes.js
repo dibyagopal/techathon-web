@@ -58,7 +58,7 @@ var routes = [
   },
   {
     path: '/announce-list',
-    name: 'Trainer List',
+    name: 'Available Trainers',
     icon: 'ni ni ni-circle-08 text-blue',
     component: AnnounceList,
     layout: '/admin'
