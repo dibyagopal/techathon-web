@@ -82,6 +82,19 @@ const Sidebar = (props) => {
     });
   };
 
+  const fakeLinks = () => {
+    return (
+      <Nav navbar>
+        <NavItem>
+          <NavLink activeClassName="active">
+            {/* <i className={prop.icon} /> */}
+            {'Name'}
+          </NavLink>
+        </NavItem>
+      </Nav>
+    );
+  };
+
   const { bgColor, routes, logo } = props;
   let navbarBrandProps;
   if (logo && logo.innerLink) {
@@ -197,36 +210,64 @@ const Sidebar = (props) => {
           </Form>
           {/* Navigation */}
           <Nav navbar>{createLinks(routes)}</Nav>
+
           {/* Divider */}
           <hr className="my-3" />
+          {/* {fakeLinks()} */}
           {/* Heading */}
           {/* <h6 className="navbar-heading text-muted">Documentation</h6> */}
           {/* Navigation */}
-          {/* <Nav className="mb-md-3" navbar>
+          <Nav className="mb-md-3" navbar>
             <NavItem>
-              <NavLink href="https://demos.creative-tim.com/argon-dashboard-react/#/documentation/overview?ref=adr-admin-sidebar">
-                <i className="ni ni-spaceship" />
-                Getting started
+              <NavLink href="#">
+                <i className="ni ni-button-play text-blue" />
+                My training videos
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://demos.creative-tim.com/argon-dashboard-react/#/documentation/colors?ref=adr-admin-sidebar">
-                <i className="ni ni-palette" />
-                Foundation
+              <NavLink href="#">
+                <i className="ni ni-cloud-upload-96 text-blue" />
+                ZOHO sync setting
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://demos.creative-tim.com/argon-dashboard-react/#/documentation/alerts?ref=adr-admin-sidebar">
-                <i className="ni ni-ui-04" />
-                Components
+              <NavLink href="#">
+                <i className="ni ni-briefcase-24 text-blue" />
+                Skills on demand
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#">
+                <i className="ni ni-collection text-blue" />
+                Idle time report
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#">
+                <i className="ni ni-books text-blue" />
+                Trainer performance report
+              </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink href="#">
+                <i className="ni ni-headphones text-blue" />
+                Google meet setting
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#">
+                <i className="ni ni-chat-round text-blue" />
+                Admin announcement
               </NavLink>
             </NavItem>
           </Nav>
-          <Nav className="mb-md-3" navbar>
-            <NavItem className="active-pro active">
-              <NavLink href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar">
-                <i className="ni ni-spaceship" />
-                Upgrade to PRO
+
+          {/* <Nav className="mb-md-3" navbar>
+            <NavItem>
+              <NavLink href="#">
+                <i className="ni ni-books text-blue" />
+                Trainer performance report
               </NavLink>
             </NavItem>
           </Nav> */}

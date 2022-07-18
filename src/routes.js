@@ -63,13 +63,13 @@ var routes = [
     component: AnnounceList,
     layout: '/admin'
   },
-  {
-    path: '/icons',
-    name: 'Icons',
-    icon: 'ni ni-planet text-blue',
-    component: Icons,
-    layout: '/admin'
-  },
+  // {
+  //   path: '/icons',
+  //   name: 'Icons',
+  //   icon: 'ni ni-planet text-blue',
+  //   component: Icons,
+  //   layout: '/admin'
+  // },
   // {
   //   path: "/maps",
   //   name: "Maps",
@@ -84,13 +84,13 @@ var routes = [
   //   component: Profile,
   //   layout: "/admin",
   // },
-  {
-    path: '/tables',
-    name: 'Tables',
-    icon: 'ni ni-bullet-list-67 text-red',
-    component: Tables,
-    layout: '/admin'
-  },
+  // {
+  //   path: '/tables',
+  //   name: 'Tables',
+  //   icon: 'ni ni-bullet-list-67 text-red',
+  //   component: Tables,
+  //   layout: '/admin'
+  // },
   {
     path: '/login',
     name: 'Login',
